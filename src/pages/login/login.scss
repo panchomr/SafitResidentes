@@ -1,0 +1,26 @@
+page-login {
+    .fondo{
+        background-color: #2F3952;
+        background-position: left;
+        background-size: auto;
+    }
+    .Absolute-Center {
+        margin: auto;
+        position: relative;
+        top: 30%; left: 0; bottom:50; right: 0;
+        
+      }
+
+    .header{
+        margin:auto;
+        position: relative;
+        top:15%; left:0 ; bottom:0; right: 0;
+        background: transparent;
+        color: #ffff !important;
+        height: 180px;
+        width: 180px;
+    } 
+    .btn{
+        border-radius: 10px;
+    }
+}

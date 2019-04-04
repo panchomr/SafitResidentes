@@ -1,14 +1,33 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar >
+    
+    <ion-buttons>
+      <button ion-button
+              icon-only
+              menuToggle color="light"
+              >
+        <ion-icon name="menu"></ion-icon>
+        <div class="titulo">
+          <h3>Safit - Home</h3> 
+        </div>
+        <div>
+          <button ion-button icon-only color="light">
+            <ion-icon name="cart"></ion-icon>  
+            <ion-badge class="carrito-numero" color="danger">5</ion-badge>
+          </button>
+        </div>
+      </button>
+     
+  </ion-buttons>
+  
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding class="fondo">
+ <h1>Bienvenido Sr(a).  {{nombre}}</h1>
+ 
+
+ <div *ngIf="admin"> este es div de admin ve todo</div>
+ <div *ngIf="admin || residente">No posee nuevas notificaciones</div>
+ <div *ngIf="admin || conserje"> este div es de conserje y lo puede ver solo el conserje y admin</div>
 </ion-content>

@@ -1,0 +1,66 @@
+<!--
+  Generated template for the EspaciosComunesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+      <ion-buttons>
+          <button ion-button
+                  icon-only
+                  menuToggle color="light"
+                  >
+            <ion-icon name="menu"></ion-icon>
+            <div class="titulo">
+              <h6>Safit - Espacios Comunes</h6> 
+            </div>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="fondo">
+
+     
+ <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+    <ion-item style="background-color: rgba(212, 208, 208, 0.3);" >
+        <ion-label>Espacio Común</ion-label>
+        <ion-select [(ngModel)]="zone.kind" formControlName="ddlEspacio" style="color: #ffff !important;">
+          <ion-option *ngFor="let key of modeKeys" >{{key}}</ion-option>
+        </ion-select>
+      </ion-item>
+    <ion-item style="background-color: rgba(212, 208, 208, 0.3)">
+        <ion-icon name="calendar" item-start style="color:#e36636 !important;"></ion-icon>
+        <ion-label stacked>Fecha Solicitud</ion-label>
+        <ion-datetime formControlName="fechaSolicitud" displayFormat="MM-DD-YYYY" placeholder="MM-DD-YYY" style="color: #ffff !important;"></ion-datetime>
+    </ion-item>
+    <ion-item style="background-color: rgba(212, 208, 208, 0.3)">
+        <ion-icon name="clock" item-start style="color:#e36636 !important;"></ion-icon>
+        <ion-label>Hora Inicio</ion-label>
+        <ion-input formControlName="horaInicio" type="email" style="color: #ffff !important;"></ion-input>
+    </ion-item>
+    <ion-item style="background-color: rgba(212, 208, 208, 0.3)">
+        <ion-icon name="clock" item-start style="color:#e36636 !important;"></ion-icon>
+        <ion-label>Hora Termino</ion-label>
+        <ion-input formControlName="horaTermino" type="email" style="color: #ffff !important;"></ion-input>
+    </ion-item>
+    <ion-item style="background-color: rgba(212, 208, 208, 0.3)"  >
+        <ion-icon name="person" item-start style="color:#e36636 !important;"></ion-icon>
+        <ion-label stacked>Nombre Solicitante:</ion-label>
+        <ion-input formControlName="name" type="text" placeholder="Nombre" style="color: #ffff !important;"></ion-input>
+      </ion-item>
+      <ion-item style="background-color: rgba(212, 208, 208, 0.3)"  >
+          <ion-icon name="home" item-start style="color:#e36636 !important;" ></ion-icon>
+          <ion-label stacked>Departamento:</ion-label>
+          <ion-input formControlName="depto" type="text" placeholder="Depto" style="color: #ffff !important;"></ion-input>
+        </ion-item>
+
+    <button ion-button full class="btn" color="secondary" [disabled]="!myForm.valid" style="margin-top: 20px;" type="submit">Solicitar</button> 
+ </form>     
+<div>
+    <!----> 
+</div>
+</ion-content>

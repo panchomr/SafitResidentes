@@ -1,0 +1,65 @@
+
+<ion-header>
+  <ion-navbar>
+      <ion-buttons>
+          <button ion-button
+                  icon-only
+                  menuToggle color="light"
+                  >
+            <ion-icon name="menu"></ion-icon>
+            <div class="titulo">
+              <h3>Safit - Mi Hogar</h3> 
+            </div>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="fondo">
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+        
+        <ion-item style="background-color: rgba(212, 208, 208, 0.3)">
+            <ion-icon name="calendar" item-start style="color:#e36636 !important;"></ion-icon>
+            <ion-label stacked>Fecha Solicitud</ion-label>
+            <ion-datetime formControlName="fechaSolicitud" displayFormat="MM-DD-YYYY" placeholder="MM-DD-YYY" style="color: #ffff !important;"></ion-datetime>
+        </ion-item>
+        <ion-item style="background-color: rgba(212, 208, 208, 0.3)">
+            <ion-icon name="clock" item-start style="color:#e36636 !important;"></ion-icon>
+            <ion-label>Hora Inicio</ion-label>
+            <ion-input formControlName="horaInicio" type="email" style="color: #ffff !important;"></ion-input>
+        </ion-item>
+        <ion-item style="background-color: rgba(212, 208, 208, 0.3)">
+            <ion-icon name="clock" item-start style="color:#e36636 !important;"></ion-icon>
+            <ion-label>Hora Termino</ion-label>
+            <ion-input formControlName="horaTermino" type="email" style="color: #ffff !important;"></ion-input>
+        </ion-item>
+        <ion-item style="background-color: rgba(212, 208, 208, 0.3)"  >
+            <ion-icon name="person" item-start style="color:#e36636 !important;"></ion-icon>
+            <ion-label stacked>Nombre Solicitante:</ion-label>
+            <ion-input formControlName="name" type="text" placeholder="Nombre" style="color: #ffff !important;"></ion-input>
+          </ion-item>
+          <ion-item style="background-color: rgba(212, 208, 208, 0.3)"  >
+              <ion-icon name="home" item-start style="color:#e36636 !important;" ></ion-icon>
+              <ion-label stacked>Departamento:</ion-label>
+              <ion-input formControlName="depto" type="text" placeholder="Depto" style="color: #ffff !important;"></ion-input>
+            </ion-item>
+            <ion-item style="background-color: rgba(212, 208, 208, 0.3)"  >
+                <ion-icon name="text" item-start style="color:#e36636 !important;" ></ion-icon>
+                <ion-label stacked>Departamento:</ion-label>
+                <ion-textarea formControlName="observacion" type="text" placeholder="Datos Adicionales" rows="6" style="color: #ffff !important;"></ion-textarea>
+              </ion-item>
+             <ion-item  style="background-color: rgba(212, 208, 208, 0.3);" >
+                <ion-label>Estado</ion-label>
+                <ion-select [(ngModel)]="zone.kind" formControlName="ddlEstado" (ionChange)="onChange($event)" style="color: #ffff !important;text-align: left !important;">
+                  <ion-option *ngFor="let key of modeKeys" >{{key}}</ion-option>
+                </ion-select>
+            </ion-item> 
+  
+        <button ion-button full class="btn" color="secondary" [disabled]="!myForm.valid" style="margin-top: 20px;" type="submit">Actualizar</button> 
+     </form>
+     <div *ngIf="prueba">
+         DiV de prueba
+     </div>    
+</ion-content>

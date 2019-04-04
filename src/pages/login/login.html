@@ -1,0 +1,18 @@
+
+<ion-content padding class="fondo" >
+  <div class="header">
+    <img src="../../assets/imgs/logo.png" />
+  </div>
+  <div class="Absolute-Center">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+      <ion-item style="background-color: rgba(212, 208, 208, 0.3)" [ngClass]="{'error-border':!loginForm.controls.rut.valid && loginForm.controls.rut.touched}">
+        <ion-label floating>Rut</ion-label>
+        <ion-input formControlName="rut" type="email" aria-placeholder="123456789-0" style="color: #ffff !important;"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="loginForm.controls.rut.hasError('required') && loginForm.controls.rut.touched">
+      <p class="text text-md-danger">Ingrese su Rut.</p>
+    </ion-item>
+    <button ion-button full class="btn" color="secondary" [disabled]="!loginForm.valid" style="margin-top: 20px;" type="submit">Ingresar</button> 
+  </form>
+  </div>
+</ion-content>

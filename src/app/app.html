@@ -1,1 +1,22 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content" type="overlay">
+
+    <ion-header>
+      <ion-toolbar color="test">
+        <!-- <img  class="imgRedonda" src="https://scontent.fscl10-1.fna.fbcdn.net/v/t1.0-9/29792672_189617845154443_5127881916564357558_n.jpg?_nc_cat=104&_nc_ht=scontent.fscl10-1.fna&oh=f910badbfedd258fafa94368e3c37010&oe=5C759134"> -->
+        <ion-title>{{nombre}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  
+  
+    <ion-content>
+      <ion-list *ngFor="let p of pages">
+        <button   ion-item   *ngIf="p.visible" (click)="abrirarPagina(p)" >
+          {{p.title}}
+        </button>
+      </ion-list> 
+
+    </ion-content>
+  </ion-menu>
+
+
+<ion-nav [root]="rootPage" #content></ion-nav>
