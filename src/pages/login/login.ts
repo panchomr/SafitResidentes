@@ -29,10 +29,10 @@ export class LoginPage {
               public formBuilder: FormBuilder,
               private menuCtrl:MenuController,
               private auth:AuthProvider,
-              public toastCtrl: ToastController,) {
+              public toastCtrl: ToastController) {
 
     this.loginForm = formBuilder.group({
-      rut:['15936732-0',Validators.compose([Validators.required])]
+      rut:['',Validators.compose([Validators.required])]
     })              
   }
 
