@@ -16,6 +16,7 @@ import { MiHogarPage } from '../pages/mi-hogar/mi-hogar';
 import { SeguridadPage } from '../pages/seguridad/seguridad';
 import { EspaciosComunesPage } from '../pages/espacios-comunes/espacios-comunes';
 import { GastosComunesPage } from "../pages/gastos-comunes/gastos-comunes";
+import { BloqueosPage } from "../pages/bloqueos/bloqueos"; 
 
 
 //plugins
@@ -36,7 +37,8 @@ import { AuthProvider } from '../providers/auth/auth';
     MiHogarPage,
     SeguridadPage,
     EspaciosComunesPage,
-    GastosComunesPage
+    GastosComunesPage,
+    BloqueosPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { AuthProvider } from '../providers/auth/auth';
     MiHogarPage,
     SeguridadPage,
     EspaciosComunesPage,
-    GastosComunesPage
+    GastosComunesPage,
+    BloqueosPage
   ],
   providers: [
     StatusBar,

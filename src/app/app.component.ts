@@ -13,6 +13,8 @@ import { SeguridadPage } from '../pages/seguridad/seguridad';
 import { EspaciosComunesPage } from '../pages/espacios-comunes/espacios-comunes';
 import { GastosComunesPage } from '../pages/gastos-comunes/gastos-comunes';
 import { PushProvider } from "../providers/push/push";
+import { BloqueosPage } from '../pages/bloqueos/bloqueos';
+//import { ListabloqueosPage } from '../pages/listabloqueos/listabloqueos';
 @Component({
   templateUrl: 'app.html'
 })
@@ -27,6 +29,7 @@ export class MyApp {
   admin: Boolean=false;
   residente :Boolean=false;
   conserje:Boolean=false;
+  bloqueos = BloqueosPage;
   
   pages :any[]=[];
   @ViewChild(Nav) nav: Nav;
@@ -51,9 +54,10 @@ export class MyApp {
       {title:'Mi Perfil', component:RegistroPage,visible:true},
       {title:'Mi Hogar', component:MiHogarPage,visible:true},
       {title:'Seguridad', component:SeguridadPage,visible:true},
+      {title:'Lista Visitas Bloqueadas', component:BloqueosPage,visible:true},
       {title:'Espacios Comunes', component:EspaciosComunesPage,visible:true},
       {title:'Gastos Comunes', component:GastosComunesPage,visible:true},
-      {title:'Beneficios y Descuentos', component:BeneficiosPage,visible:true},
+      {title:'Beneficios y Descuentos', component:BeneficiosPage,visible:true}
       
     ];
   }
