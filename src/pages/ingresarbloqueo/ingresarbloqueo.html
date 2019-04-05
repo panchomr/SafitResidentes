@@ -1,0 +1,30 @@
+<!--
+  Generated template for the IngresarbloqueoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title class="titulo" color="ligth">
+      Safit - Bloqueos
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="fondo">
+<form [formGroup]="myForm" (ngSubmit)=onSubmit(myForm.value)>
+  <ion-item style="background-color: rgba(212, 208, 208, 0.3)"  >
+    <ion-icon name="person" item-start style="color:#e36636 !important;"></ion-icon>
+    <ion-label stacked>Nombre a Bloquear:</ion-label>
+    <ion-input formControlName="name" type="text" placeholder="Nombre" style="color: #ffff !important;"></ion-input>
+  </ion-item>
+  <ion-item style="background-color: rgba(212, 208, 208, 0.3)"  >
+    <ion-icon name="text" item-start style="color:#e36636 !important;"></ion-icon>
+    <ion-label stacked>Observacion(opcional):</ion-label>
+    <ion-input formControlName="observacion" type="text" placeholder="Nombre" style="color: #ffff !important;"></ion-input>
+  </ion-item>
+  <button ion-button full class="btn" color="secondary" [disabled]="!myForm.valid" style="margin-top: 20px;" type="submit">Ingresar</button>
+</form>
+</ion-content>

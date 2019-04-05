@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IngresarbloqueoPage } from '../ingresarbloqueo/ingresarbloqueo';
 
 /**
  * Generated class for the BloqueosPage page.
@@ -21,6 +22,10 @@ export class BloqueosPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad BloqueosPage');
     //todo:gfgf
+  }
+
+  ingresarBloqueo(){
+    this.navCtrl.push(IngresarbloqueoPage);
   }
 
 }

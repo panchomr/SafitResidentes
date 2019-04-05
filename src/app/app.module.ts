@@ -17,6 +17,7 @@ import { SeguridadPage } from '../pages/seguridad/seguridad';
 import { EspaciosComunesPage } from '../pages/espacios-comunes/espacios-comunes';
 import { GastosComunesPage } from "../pages/gastos-comunes/gastos-comunes";
 import { BloqueosPage } from "../pages/bloqueos/bloqueos"; 
+import { IngresarbloqueoPage } from "../pages/ingresarbloqueo/ingresarbloqueo";
 
 
 //plugins
@@ -38,7 +39,8 @@ import { AuthProvider } from '../providers/auth/auth';
     SeguridadPage,
     EspaciosComunesPage,
     GastosComunesPage,
-    BloqueosPage
+    BloqueosPage,
+    IngresarbloqueoPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { AuthProvider } from '../providers/auth/auth';
     SeguridadPage,
     EspaciosComunesPage,
     GastosComunesPage,
-    BloqueosPage
+    BloqueosPage,
+    IngresarbloqueoPage
   ],
   providers: [
     StatusBar,
