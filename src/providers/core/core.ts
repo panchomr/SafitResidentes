@@ -19,7 +19,16 @@ export class CoreProvider {
   }
 
   ingresarSolicitudEspacioComun(solicitud: EspaciosComunes){
-    return this.http.post(this.url+'/SolicitarEspacioComun',solicitud);
+    return this.http.post(this.urlLocal+'/SolicitarEspacioComun',solicitud);
+  }
+
+  ingresarBloqueo(nombreBloqueado:string,observacion:string){
+    let numeroDepartamento = window.localStorage.getItem('NumeroDepartamento');
+    return this.http.post(this.urlLocal + '/IngresarBloqueo',{nombreBloqueado,observacion,numeroDepartamento});
+  }
+
+  getBloqueos(){
+    return this.http.get(this.urlLocal + '/GetBloqueos');
   }
 
 }

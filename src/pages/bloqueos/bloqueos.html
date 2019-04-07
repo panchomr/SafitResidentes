@@ -5,8 +5,8 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title class="titulo" color="ligth">
+  <ion-navbar >
+    <ion-title>
       Safit - Bloqueos
     </ion-title>
     <button slot="primary" ion-button icon-only menuToggle color="light">
@@ -24,5 +24,25 @@
 
 
 <ion-content padding class="fondo">
-<h2>Bloqueos ingresados</h2>
+<!-- <h2 class="titulo">Bloqueos ingresados</h2> -->
+
+<ion-list *ngFor="let bloqueo of bloqueos">
+  <ion-item-sliding style="background-color: rgba(212, 208, 208, 0.3)">
+    <ion-item style="background-color: rgba(212, 208, 208, 0.3)" >
+        <h3><b>Nro Departamento: </b>{{bloqueo.numeroDepartamento}}</h3>
+        <h2><b>Nombre Bloqueado: </b>{{bloqueo.nombreBloqueado}}</h2>
+        <h4><b>Observación: </b>{{bloqueo.observacion}}</h4>
+    </ion-item>
+    <ion-item-options side="right">
+        <button ion-button color="secondary" (click)="desbloquear(bloqueo)">
+          <ion-icon name="settings"></ion-icon>
+          Desbloquear
+        </button>
+        <!-- <button ion-button color="danger">
+          <ion-icon name="close"></ion-icon>
+          Cerrar
+        </button> -->
+      </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
 </ion-content>

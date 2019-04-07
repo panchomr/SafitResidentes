@@ -15,7 +15,7 @@ export class AuthProvider {
 
   validarUsuario(rut:string){
     
-    return this.http.post(this.url + '/Validar',{rut});
+    return this.http.post(this.urlLocal + '/Validar',{rut});
   }
 
   registrarUsuario(user:Usuario){

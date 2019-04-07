@@ -1,33 +1,17 @@
 <ion-header>
-  <ion-navbar >
-    
-    <ion-buttons>
-      <button ion-button
-              icon-only
-              menuToggle color="light"
-              >
-        <ion-icon name="menu"></ion-icon>
-        <div class="titulo">
-          <h3>Safit - Home</h3> 
-        </div>
-        <div>
-          <button ion-button icon-only color="light">
-            <ion-icon name="cart"></ion-icon>  
-            <ion-badge class="carrito-numero" color="danger">5</ion-badge>
-          </button>
-        </div>
-      </button>
-     
-  </ion-buttons>
-  
+  <ion-navbar>
+    <ion-title>Safit - Home</ion-title>
+    <button ion-button icon-only menuToggle color="light">
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="fondo">
- <h1>Bienvenido Sr(a).  {{nombre}}</h1>
- 
+  <h1>Bienvenido Sr(a). {{nombre}}</h1>
 
- <div *ngIf="admin"> este es div de admin ve todo</div>
- <div *ngIf="admin || residente">No posee nuevas notificaciones</div>
- <div *ngIf="admin || conserje"> este div es de conserje y lo puede ver solo el conserje y admin</div>
+
+  <div *ngIf="admin"> este es div de admin ve todo</div>
+  <div *ngIf="admin || residente">No posee nuevas notificaciones</div>
+  <div *ngIf="admin || conserje"> este div es de conserje y lo puede ver solo el conserje y admin</div>
 </ion-content>

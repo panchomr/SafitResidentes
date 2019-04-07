@@ -6,7 +6,7 @@
   <div class="Absolute-Center">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
       <ion-item style="background-color: rgba(212, 208, 208, 0.3)" [ngClass]="{'error-border':!loginForm.controls.rut.valid && loginForm.controls.rut.touched}">
-        <ion-label floating>Rut</ion-label>
+        <ion-label floating>Rut(12345678-9)</ion-label>
         <ion-input formControlName="rut" type="email" aria-placeholder="123456789-0" style="color: #ffff !important;"></ion-input>
     </ion-item>
     <ion-item *ngIf="loginForm.controls.rut.hasError('required') && loginForm.controls.rut.touched">

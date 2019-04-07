@@ -67,5 +67,6 @@ export class MyApp {
     this.menuCtrl.close();
 
   }
+ 
 }
 

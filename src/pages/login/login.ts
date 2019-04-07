@@ -62,6 +62,7 @@ export class LoginPage {
           window.localStorage.setItem('idPerfil', this.usuario[0].idPerfil);
           window.localStorage.setItem('Nombre', this.nombre);
           window.localStorage.setItem('Id',this.usuario[0].id );
+          window.localStorage.setItem('NumeroDepartamento', this.usuario[0].numeroDepartamento);
           
           if (this.usuario[0].registrado) {
             this.navCtrl.setRoot(TabsPage);

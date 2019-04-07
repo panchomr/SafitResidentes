@@ -41,12 +41,12 @@ export class MiHogarPage {
   private createMyForm(){
     return this.formBuilder.group({
       ddlEstado:[this.zone, Validators.required],
-      name: ['Francisco Muñoz', Validators.required],
-      depto: ['1005', Validators.required],
-      observacion: ['Estare fuera por vacaciones la unica persona Autorizada para ingresar es Sebastian Costa Rut 1-9', Validators.required],
-      horaInicio: ['20:00', Validators.required],
-      horaTermino: ['02:00', Validators.required],
-      fechaSolicitud: ["01-11-2019", Validators.required]
+      name: ['', Validators.required],
+      depto: ['', Validators.required],
+      observacion: ['', Validators.required],
+      horaInicio: ['', Validators.required],
+      horaTermino: ['', Validators.required],
+      fechaSolicitud: ["", Validators.required]
       
       
     });

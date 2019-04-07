@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CoreProvider } from '../../providers/core/core';
+import { BloqueosPage } from '../bloqueos/bloqueos';
 /**
  * Generated class for the IngresarbloqueoPage page.
  *
@@ -15,10 +17,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class IngresarbloqueoPage {
   myForm: FormGroup;
-  bloqueos: any[] = [];
+  
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public formBuilder: FormBuilder) {
+    public formBuilder: FormBuilder,
+    public coreProvider: CoreProvider,
+    public alertController: AlertController) {
     this.myForm = this.createMyForm();
 
   }
@@ -36,12 +40,25 @@ export class IngresarbloqueoPage {
 
   onSubmit(value: any) {
     //todo: enviar a base datos crear tabla bloqueos
-    this.bloqueos.push(
-      {
-        'nombreBloqueo': value.name,
-        'observacion':value.observacion
-      }
-    );
+    this.coreProvider.ingresarBloqueo(value.name, value.observacion)
+      .subscribe(data => {
+        console.log(data);
+        this.alertController.create({
+          title: 'Ingresado',
+          message: 'Bloqueo ingresado Correctamente',
+          buttons: ["OK"]
+        }).present();
+        this.navCtrl.setRoot(BloqueosPage);
+       
+      },
+        error => {
+          console.log(error);
+          this.alertController.create({
+            title: 'Error',
+            message: error.error,
+            buttons: ["OK"]
+          }).present();
+        });
 
   }
 
