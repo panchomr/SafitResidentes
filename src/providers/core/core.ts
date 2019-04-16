@@ -11,7 +11,7 @@ import { EspaciosComunes } from '../../espacioscomunes.interface';
 @Injectable()
 export class CoreProvider {
 
-  private url ='http://safitdp-001-site1.htempurl.com/v1/api'
+  private url ='http://safit.cl/v1/api'
   private urlLocal = 'https://localhost:44376/api'
 
   constructor(public http: HttpClient) {
@@ -19,16 +19,20 @@ export class CoreProvider {
   }
 
   ingresarSolicitudEspacioComun(solicitud: EspaciosComunes){
-    return this.http.post(this.urlLocal+'/SolicitarEspacioComun',solicitud);
+    return this.http.post(this.url+'/SolicitarEspacioComun',solicitud);
   }
 
   ingresarBloqueo(nombreBloqueado:string,observacion:string){
     let numeroDepartamento = window.localStorage.getItem('NumeroDepartamento');
-    return this.http.post(this.urlLocal + '/IngresarBloqueo',{nombreBloqueado,observacion,numeroDepartamento});
+    return this.http.post(this.url + '/IngresarBloqueo',{nombreBloqueado,observacion,numeroDepartamento});
   }
 
   getBloqueos(){
-    return this.http.get(this.urlLocal + '/GetBloqueos');
+    return this.http.get(this.url + '/GetBloqueos');
+  }
+
+  desbloquear(id:any){
+    return this.http.post(this.url + '/DesbloquearPersona',id);
   }
 
 }

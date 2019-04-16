@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { IngresarbloqueoPage } from '../ingresarbloqueo/ingresarbloqueo';
 import { CoreProvider } from '../../providers/core/core';
 
@@ -17,23 +17,23 @@ import { CoreProvider } from '../../providers/core/core';
 })
 export class BloqueosPage {
   bloqueos: any;
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams,
-              public coreProvider: CoreProvider,
-              public alertController: AlertController) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public coreProvider: CoreProvider,
+    public alertController: AlertController) {
     this.coreProvider.getBloqueos()
-    .subscribe(data => {
-      console.log(data);
-      this.bloqueos = data;
-    },
-      error => {
-        console.log(error);
-        this.alertController.create({
-          title: 'Error',
-          message: error.error,
-          buttons: ["OK"]
-        }).present();
-      });
+      .subscribe(data => {
+        this.bloqueos = data;
+        console.log('es el console de los bloqueos' + this.bloqueos);
+      },
+        error => {
+          console.log(error);
+          this.alertController.create({
+            title: 'Error',
+            message: error.error,
+            buttons: ["OK"]
+          }).present();
+        });
   }
 
   ionViewDidLoad() {
@@ -41,12 +41,30 @@ export class BloqueosPage {
     //todo:gfgf
   }
 
-  ingresarBloqueo(){
+  ingresarBloqueo() {
     this.navCtrl.push(IngresarbloqueoPage);
   }
 
-  desbloquear(bloqueo:any){
-    console.log(bloqueo);
+  desbloquear(bloqueo: any) {
+    console.log(bloqueo.id);
+    let id = bloqueo.id;
+    this.coreProvider.desbloquear(id)
+      .subscribe(data => {
+        this.alertController.create({
+          title: 'Persona Desbloqueada',
+          message: bloqueo.nombreBloqueado + 'Ha sido Desbloqueado OK.',
+          buttons: ["OK"]
+        }).present();
+        this.navCtrl.setRoot(BloqueosPage);
+      },
+        error => {
+          console.log(error);
+          this.alertController.create({
+            title: 'Error',
+            message: error.error,
+            buttons: ["OK"]
+          }).present();
+        });
   }
 
 }
